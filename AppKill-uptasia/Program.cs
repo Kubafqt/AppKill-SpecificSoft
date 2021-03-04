@@ -83,6 +83,8 @@ namespace HelenkaApp
             {
                ShowConsoleWindow();
                Console.WriteLine($"File to start process on {procesPath} is not exist!");
+               Console.ReadKey();
+               return;
             }
             processToKill = "upjers;my little farm;unitycrash".Split(';');
             //wait for till app icon get ready in taskbar:
