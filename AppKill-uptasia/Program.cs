@@ -88,7 +88,8 @@ namespace HelenkaApp
             }
             processToKill = "upjers;my little farm;unitycrash".Split(';');
             //wait for till app icon get ready in taskbar:
-            while (!iconImage.ImageCheck(iconImage.startSearch, iconImage.endSearch)) { Thread.Sleep(500); }
+            int repetition = 0;
+            while (!iconImage.ImageCheck(iconImage.startSearch, iconImage.endSearch) && repetition < 25) { repetition++; Thread.Sleep(500); }
 
             //timer for keydown catcher:
             KeyDownTimer = new System.Timers.Timer(); //for RMB to login and accept cookies
