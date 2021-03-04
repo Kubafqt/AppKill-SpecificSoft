@@ -13,8 +13,7 @@ using System.Collections.Generic;
 namespace HelenkaApp
 {
    class Program
-   {
-      private static readonly string connString = $"Data Source={Path.Combine(Application.StartupPath, @"..\..\database.mdf")}";
+   { 
       private static string[] processToKill; //processes to Process.Kill
       public static Size screenSize = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height); //size of display
       private static System.Timers.Timer KeyDownTimer; //timer for keycatch
