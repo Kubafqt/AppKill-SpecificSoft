@@ -120,13 +120,16 @@ namespace HelenkaApp
          int processId = currentProces.Id; //current process ID
          Process[] runningProcesses = Process.GetProcesses();
          ID = new List<int>(); //list of PID of duplicates of current process
+         bool anotherProcIsRunning = false;
          foreach (var runningProcess in runningProcesses) //get duplicate list of this program
          {
             if (runningProcess.ProcessName == processName && runningProcess.Id != processId)
-            { ID.Add(runningProcess.Id); }
-            return true;
+            { 
+               ID.Add(runningProcess.Id);
+               anotherProcIsRunning = true;
+            }
          }
-         return false;
+         return anotherProcIsRunning;
       }
 
       /// <summary>
@@ -196,7 +199,7 @@ namespace HelenkaApp
          catch (Exception e)
          {
             ShowConsoleWindow();
-            Console.WriteLine($"DeleteIIconAfterEnd error: {e.GetType()}");
+            Console.WriteLine($"DeleteIconAfterEnd error: {e.GetType()}");
          }
       }
 
